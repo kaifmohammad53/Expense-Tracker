@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpenseTracker</title>
+    <link rel="stylesheet" href="/ExpenseTracker/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-wallet"></i>
+                <h3>Expense Tracker</h3>
+            </div>
+            <div class="setting">
+                <i class="fa-solid fa-bell"></i>
+                <i class="fa-solid fa-gear"></i>
+            </div>
+        </div>
+        <div class="account">
+            <div class="balance">
+                <p class="heading">Your Balance</p>
+                <i class="fa-solid fa-rupee-sign"></i>
+                <p class="heading">120000</p>
+            </div>
+            <div class="income">
+                <p class="heading">Income</p>
+                <i class="fa-solid fa-sort-up"></i>
+                <p class="heading">$120000</p>
+            </div>
+            <div class="expense">
+                <i class="fa-solid fa-sort-down"></i>
+                <p class="heading">Expenses</p>
+                <p class="heading">$120000</p>
+            </div>
+        </div>
+        <div class="Transaction">
+            <div class="addTrs">
+                <p>Add Transaction</p>
+                <input type="text" placeholder="Enter Description">
+                <input type="text" placeholder="Enter Amount">
+                <div class="buttons">
+                    <button id="income">Add Income</button>
+                    <button id="expense">Add Expenses</button>
+                </div>
+            </div>
+            <div class="trsHistory">
+                <div class="history-head">
+                    <p>Transaction History</p>
+                    <button id="clear">Clear All</button>
+                </div>
+                <div class="history">
+                    <div class="record">
+                        <p>Grocery Shopping</p>
+                        <p>+$800.00</p>
+                        <i class="fa-solid fa-trash"></i>
+                    <div class="record">
+                        <p>Grocery Shopping</p>
+                        <p>+$800.00</p>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                    <div class="record">
+                        <p>Grocery Shopping</p>
+                        <p>+$800.00</p>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/ExpenseTracker/script.js"></script>
+</body>
+</html>

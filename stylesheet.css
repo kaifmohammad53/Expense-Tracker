@@ -53,4 +53,18 @@ h1{
     gap: 15px;
     padding-right: 20px;
 }
-
+.account{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 20px;
+    border:2px solid red;
+}
+.balance,.expense,.income{
+    height:80%;
+    width:30%;
+    border: 2px solid black;
+}

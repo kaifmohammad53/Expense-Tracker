@@ -23,22 +23,30 @@
         <div class="account">
             <div class="balance">
                 <p class="heading">Your Balance</p>
-                <i class="fa-solid fa-rupee-sign"></i>
-                <p class="heading">120000</p>
+                <div class="icon-con" style="background-color: green;">
+                    <i class="fa-solid fa-rupee-sign icon"></i>
+                    <p class="price">120000</p>
+                </div>
             </div>
             <div class="income">
                 <p class="heading">Income</p>
-                <i class="fa-solid fa-sort-up"></i>
-                <p class="heading">$120000</p>
+                <div class="icon-con" style="color:green">
+                    <i class="fa-solid fa-sort-up"></i>
+                    <i class="fa-solid fa-rupee-sign icon"></i>
+                    <p class="price">120000</p>
+                </div>
             </div>
             <div class="expense">
-                <p class="heading">Expenses</p>
-                <i class="fa-solid fa-sort-down"></i>
-                <p class="heading">$120000</p>
+                <p class="heading" id="head">Expenses</p>
+                <div class="icon-con" style="color:red">
+                    <i class="fa-solid fa-sort-down icon"></i>
+                    <i class="fa-solid fa-rupee-sign icon"></i>
+                    <p class="price">120000</p>
+                </div>
             </div>
         </div>
-        <div class="Transaction">
-            <div class="addTrs">
+        <div class="transaction">
+            <class="addTrs">
                 <p>Add Transaction</p>
                 <input type="text" placeholder="Enter Description">
                 <input type="text" placeholder="Enter Amount">

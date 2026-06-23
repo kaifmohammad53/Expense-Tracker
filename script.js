@@ -27,7 +27,7 @@ function addHistory(color, sign) {
   newHistory.innerHTML = `
         <p>${desEnter.value}</p>
         <p class="amt">${sign}${amtEnter.value}</p>
-        <i class="fa-solid fa-trash"></i>
+        <i class="fa-solid fa-trash trash"></i>
     `;
 
   let amt = newHistory.querySelector(".amt");
@@ -76,4 +76,15 @@ expensebtn.addEventListener("click", () => {
 
   desEnter.value = "";
   amtEnter.value = "";
+});
+const clearBtn = document.querySelector("#clear");
+const history = document.querySelector(".history");
+
+clearBtn.addEventListener("click", () => {
+  history.innerHTML = "";
+});
+document.querySelector(".history").addEventListener("click",(e)=>{
+  if(e.target.classList.contains("trash")){
+    e.target.parentElement.remove();
+  }
 });

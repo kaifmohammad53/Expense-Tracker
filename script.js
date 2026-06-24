@@ -8,6 +8,13 @@ let total = document.querySelector("#total");
 let addIncome = document.querySelector("#addIncome");
 let subExpense = document.querySelector("#subExpense");
 
+let saveTask = () => {
+  localStorage.setItem("history",
+     document.querySelector(".history").innerHTML);
+
+  localStorage.setItem("account",
+     document.querySelector(".account").innerHTML);
+};
 function addHistory(color, sign) {
   // Both fields empty
   if (desEnter.value.trim() === "" && amtEnter.value.trim() === "") {
@@ -34,7 +41,6 @@ function addHistory(color, sign) {
   amt.style.color = color;
 
   document.querySelector(".history").append(newHistory);
-
   return true;
 }
 
@@ -56,6 +62,7 @@ incomebtn.addEventListener("click", () => {
 
   desEnter.value = "";
   amtEnter.value = "";
+  saveTask();
 });
 
 // Expense Button
@@ -76,15 +83,30 @@ expensebtn.addEventListener("click", () => {
 
   desEnter.value = "";
   amtEnter.value = "";
+  saveTask();
 });
 const clearBtn = document.querySelector("#clear");
 const history = document.querySelector(".history");
 
 clearBtn.addEventListener("click", () => {
   history.innerHTML = "";
+  saveTask();
 });
 document.querySelector(".history").addEventListener("click",(e)=>{
   if(e.target.classList.contains("trash")){
     e.target.parentElement.remove();
   }
+  saveTask();
 });
+let loadTask=()=>{
+  let historyData = localStorage.getItem("history");
+  let accountData = localStorage.getItem("account");
+  if (historyData) {
+    document.querySelector(".history").innerHTML = historyData;
+  }
+
+  if (accountData) {
+    document.querySelector(".account").innerHTML = accountData;
+  }
+}
+loadTask();

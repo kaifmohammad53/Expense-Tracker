@@ -67,8 +67,12 @@ incomebtn.addEventListener("click", () => {
 
 // Expense Button
 expensebtn.addEventListener("click", () => {
-  if (desEnter.value.trim() === "" && amtEnter.value.trim() !== "") {
+  if(desEnter.value.trim() === "" && amtEnter.value.trim() !== "") {
     alert("kaha udaye ho itana paisa");
+    return;
+  }
+  if(parseFloat(total.innerText) < parseFloat(amtEnter.value)) {
+    alert("Nhi ho paayega! paisa nhi hai");
     return;
   }
 
@@ -95,24 +99,28 @@ clearBtn.addEventListener("click", () => {
    subExpense.innerText = 0;
   saveTask();
 });
-document.querySelector(".history").addEventListener("click",(e)=>{
-  if(e.target.classList.contains("trash")){
-    e.target.parentElement.remove();
+document.querySelector(".history").addEventListener("click", (e) => {
+  if (e.target.classList.contains("trash")) {
+    let record = e.target.parentElement;
+    let amountText = record.querySelector(".amt").innerText;
 
+    if (amountText.includes("+")) {
+      total.innerText = parseFloat(total.innerText) - parseFloat(amountText);
+
+      addIncome.innerText =
+        parseFloat(addIncome.innerText) - parseFloat(amountText);
+    }
+
+    if (amountText.includes("-")) {
+      total.innerText = parseFloat(total.innerText) - parseFloat(amountText);
+
+      subExpense.innerText =
+        parseFloat(subExpense.innerText) + parseFloat(amountText);
+    }
+
+    record.remove();
+    saveTask();
   }
-  let record = e.target.parentElement;
-  let amountText = record.querySelector(".amt").innerText;
-  if(amountText.includes("+")){
-    total.innerText =parseFloat(total.innerText)-parseFloat(amountText);
-    addIncome.innerText =
-      parseFloat(addIncome.innerText)-parseFloat(amountText);
-  }
-  if (amountText.includes("-")) {
-    total.innerText = parseFloat(total.innerText) - parseFloat(amountText);
-    subExpense.innerText =
-      parseFloat(subExpense.innerText) + parseFloat(amountText);
-  }
-  saveTask();
 });
 let loadTask=()=>{
   let historyData = localStorage.getItem("history");

@@ -90,6 +90,9 @@ const history = document.querySelector(".history");
 
 clearBtn.addEventListener("click", () => {
   history.innerHTML = "";
+   total.innerText = 0;
+   addIncome.innerText = 0;
+   subExpense.innerText = 0;
   saveTask();
 });
 document.querySelector(".history").addEventListener("click",(e)=>{
@@ -104,6 +107,11 @@ document.querySelector(".history").addEventListener("click",(e)=>{
     addIncome.innerText =
       parseFloat(addIncome.innerText)-parseFloat(amountText);
   }
+  if (amountText.includes("-")) {
+    total.innerText = parseFloat(total.innerText) - parseFloat(amountText);
+    subExpense.innerText =
+      parseFloat(subExpense.innerText) + parseFloat(amountText);
+  }
   saveTask();
 });
 let loadTask=()=>{
@@ -116,5 +124,8 @@ let loadTask=()=>{
   if (accountData) {
     document.querySelector(".account").innerHTML = accountData;
   }
+  total = document.querySelector("#total");
+  addIncome = document.querySelector("#addIncome");
+  subExpense = document.querySelector("#subExpense");
 }
-// loadTask();
+loadTask();

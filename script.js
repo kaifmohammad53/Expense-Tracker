@@ -95,6 +95,14 @@ clearBtn.addEventListener("click", () => {
 document.querySelector(".history").addEventListener("click",(e)=>{
   if(e.target.classList.contains("trash")){
     e.target.parentElement.remove();
+
+  }
+  let record = e.target.parentElement;
+  let amountText = record.querySelector(".amt").innerText;
+  if(amountText.includes("+")){
+    total.innerText =parseFloat(total.innerText)-parseFloat(amountText);
+    addIncome.innerText =
+      parseFloat(addIncome.innerText)-parseFloat(amountText);
   }
   saveTask();
 });
@@ -109,4 +117,4 @@ let loadTask=()=>{
     document.querySelector(".account").innerHTML = accountData;
   }
 }
-loadTask();
+// loadTask();
